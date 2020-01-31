@@ -12,9 +12,18 @@ const Bubbles = ({ colors }) => {
     setBubbleData(generateBubbleData);
   }, [colors]);
 
+  const bubblesDance = evt => {
+    const generateBubbleData = colors.map((_, i) => ({
+      value: Math.floor(Math.random() * (colors.length * 2)) + 1,
+      key: `${i + 1}`
+    }));
+    setBubbleData(generateBubbleData);
+  };
+
   return (
     <div className="bubble-wrap">
       <p>bubbles</p>
+      <button onClick={bubblesDance}>BUBBLES DANCE!!!</button>
       <Svg width={400} height={400}>
         <Pack
           data={{
